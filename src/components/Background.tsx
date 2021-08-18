@@ -1,8 +1,8 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 
-const WHITE = "rgb(100, 133, 68)";
-const BLACK = "rgb(230, 233, 198)";
+const WHITE = "rgb(00, 3, 8)";
+const BLACK = "rgb(230, 233, 228)";
 
 const styles = StyleSheet.create({
   container: {
@@ -26,13 +26,13 @@ interface SquareProps extends RowProps {
 const Square = ({ white, row, col }: SquareProps) => {
   const backgroundColor = white ? WHITE : BLACK;
   const color = white ? BLACK : WHITE;
-  const textStyle = { fontWeight: "500" as const, color };
+  const textStyle = { fontWeight: "500" , color };
   return (
     <View
       style={{
         flex: 1,
         backgroundColor,
-        padding: 4,
+        padding: 0,
         justifyContent: "space-between",
       }}
     >
@@ -61,8 +61,9 @@ const Row = ({ white, row }: RowProps) => {
 
 const Background = () => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1 ,padding: 0}}>
       {new Array(8).fill(0).map((_, i) => (
+        // <conta>
         <Row key={i} white={i % 2 === 0} row={i} />
       ))}
     </View>

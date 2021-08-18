@@ -15,8 +15,8 @@ import { toTranslation, SIZE, toPosition } from "./Notation";
 
 const styles = StyleSheet.create({
   piece: {
-    width: SIZE,
-    height: SIZE,
+    width: SIZE-6,
+    height: SIZE-6,
   },
 });
 type Player = "b" | "w";
@@ -100,6 +100,7 @@ const Piece = ({ id, startPosition, chess, onTurn, enabled }: PieceProps) => {
   }));
   const original = useAnimatedStyle(() => {
     return {
+      
       position: "absolute",
       width: SIZE,
       height: SIZE,

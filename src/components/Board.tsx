@@ -4,9 +4,10 @@ import { View, StyleSheet, Dimensions } from "react-native";
 import Background from "./Background";
 import Piece from "./Peace";
 import { Chess } from "chess.js";
+import CustButton from "./Buttons";
 
 
-const { width } = Dimensions.get("window");
+const { width } = Dimensions.get('window');
 
 function useConst<T>(initialValue: T | (() => T)): T {
   const ref = useRef<{ value: T }>();
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
   container: {
     width,
     height: width,
+    // padding:10
   },
 });
 
@@ -52,7 +54,7 @@ const Board = () => {
             return (
               <Piece
                 key={`${x}-${y}`}
-                id={`${piece.color}${piece.type}` as const}
+                id={`${piece.color}${piece.type}`}
                 startPosition={{ x, y }}
                 chess={chess}
                 onTurn={onTurn}
@@ -63,6 +65,7 @@ const Board = () => {
           return null;
         })
       )}
+      
     </View>
   );
 };
